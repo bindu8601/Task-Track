@@ -1,9 +1,10 @@
+import Register from "./pages/Register";
 
 
 function App() {
   return (
-    <div className="text-[40px]">
-     Task Track
+    <div>
+      <Register/>
     </div>
   );
 }
