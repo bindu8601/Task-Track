@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import register from "../../assets/images/Register.png";
 import CustomInput from "./components/CustomInput";
-import { Button, Checkbox } from "antd";
+import { Button, Checkbox, Input } from "antd";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setFirstName, setLastName, setUserEmail, setUserName, setUserPassword } from "../../reducers/userReducer";
 
 const Register = () => {
+  const { firstName,lastName,userEmail,userName,userPassword} = useSelector(({ userDetails }) => userDetails)
+  const [confirmPassword,setConfirmPassword]=useState('')
+  const dispatch=useDispatch()
   const navigate=useNavigate()
   const handleLogin=()=>{
     navigate('/login')
   }
+  console.log({firstName});
   return (
     <div className="w-screen h-screen bg-[#FF6767] relative">
       <div
@@ -26,12 +32,12 @@ const Register = () => {
           <p className="text-[36px] font-[700] leading-[44px] text-[#212427]">
             Sign Up
           </p>
-          <CustomInput placeHolder="Enter First Name" />
-          <CustomInput placeHolder="Enter Last Name" />
-          <CustomInput placeHolder="Enter Username" />
-          <CustomInput placeHolder="Enter Email" />
-          <CustomInput placeHolder="Enter Password" />
-          <CustomInput placeHolder="Confirm Password" />
+          <Input value={firstName} onChange={(e)=>dispatch(setFirstName(e.target.value))} className="mt-4 w-[559px] h-[40px]" placeHolder="Enter First Name" />
+          <Input onChange={(e)=>dispatch(setLastName(e.target.value))} value={lastName}  className="mt-4 w-[559px] h-[40px]"placeHolder="Enter Last Name" />
+          <Input onChange={(e)=>dispatch(setUserName(e.target.value))} value={userName}  className="mt-4 w-[559px] h-[40px]" placeHolder="Enter Username" />
+          <Input onChange={(e)=>dispatch(setUserEmail(e.target.value))} value={userEmail}  className="mt-4 w-[559px] h-[40px]" placeHolder="Enter Email" />
+          <Input onChange={(e)=>dispatch(setUserPassword(e.target.value))}value={userPassword}  className="mt-4 w-[559px] h-[40px]" placeHolder="Enter Password" />
+          <Input onChange={(e)=>setConfirmPassword(e.target.value)} value={confirmPassword} className="mt-4 w-[559px] h-[40px]" placeHolder="Confirm Password" />
           <p className="flex pt-[16px]">
             <Checkbox className="pr-[17px]" />I agree to all the terms
           </p>
