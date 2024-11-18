@@ -2,8 +2,10 @@ const express=require('express')
 const dotenv=require('dotenv')
 const bodyPraser=require('body-parser')
 const db = require('./src/config/db');
+const cors = require('cors');
 const registerRoute=require('./src/routes/registerRoute')
 const app=express()
+app.use(cors());
 dotenv.config()
 
 db.connect((err) => {
@@ -13,9 +15,7 @@ db.connect((err) => {
     }
     console.log('Connected to MySQL!');
 });
-app.use('/',(req,res,next)=>{
-    res.send('<h1>Hello</h1')
-})
+
 app.use(bodyPraser.json())
 app.use('/tasktrack',registerRoute)
 

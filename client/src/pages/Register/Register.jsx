@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import register from "../../assets/images/Register.png";
 import CustomInput from "./components/CustomInput";
-import { Button, Checkbox, Input } from "antd";
+import { Button, Checkbox, Input, notification } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setFirstName, setLastName, setUserEmail, setUserName, setUserPassword } from "../../reducers/userReducer";
+import { registerUser } from "../../apis/request";
 
 const Register = () => {
   const { firstName,lastName,userEmail,userName,userPassword} = useSelector(({ userDetails }) => userDetails)
@@ -14,7 +15,21 @@ const Register = () => {
   const handleLogin=()=>{
     navigate('/login')
   }
-  console.log({firstName});
+  const handleRegister=async()=>{
+    const payload={
+      firstName,lastName,userEmail,userName,password:userPassword
+    }
+    try{
+      let result=await registerUser(payload)
+      if(result?.success){
+        console.log(result?.message);
+      }
+    }
+    catch(err){
+      console.log(err);
+    }
+    console.log({payload});
+  }
   return (
     <div className="w-screen h-screen bg-[#FF6767] relative">
       <div
@@ -41,7 +56,7 @@ const Register = () => {
           <p className="flex pt-[16px]">
             <Checkbox className="pr-[17px]" />I agree to all the terms
           </p>
-          <Button className="w-[129px] h-[40px] bg-[#FF9090] text-[white] mt-[16px]">
+          <Button onClick={handleRegister} className="w-[129px] h-[40px] bg-[#FF9090] text-[white] mt-[16px]">
             Register
           </Button>
           <p className="flex pt-[16px] text-[#212427]">
