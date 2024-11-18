@@ -23,7 +23,7 @@ const Register = () => {
 I agree to all the terms
         </p>
         <Button className='w-[129px] h-[40px] bg-[#FF9090] text-[white] mt-[16px]'>Register</Button>
-        <p className='flex pt-[16px]'>Already have an account?
+        <p className='flex pt-[16px] text-[#212427]'>Already have an account?
           <p className='text-[#4096ff] pl-[5px]' style={{cursor:'pointer'}} >Sign in</p>
         </p>
       </div>
