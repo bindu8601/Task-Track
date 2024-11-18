@@ -1,7 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit'
 import userDetailsReducer from '../../reducers/userReducer'
-export const store=configureStore({
-    reducer:{
-        userDetails:userDetailsReducer
-    }
+export const store = configureStore({
+  reducer: {
+    userDetails: userDetailsReducer,
+  },
 })

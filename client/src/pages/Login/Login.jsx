@@ -1,22 +1,22 @@
-import React from "react";
-import { Button, Checkbox } from "antd";
-import CustomInput from "../Register/components/CustomInput";
-import loginImage from "../../assets/images/Login.png";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import { Button, Checkbox } from 'antd'
+import CustomInput from '../Register/components/CustomInput'
+import loginImage from '../../assets/images/Login.png'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const handleRegister = () => {
-    navigate("/register");
-  };
+    navigate('/register')
+  }
   return (
     <div className="w-screen h-screen bg-[#FF6767] relative">
       <div
         className="flex bg-white w-[1236px] h-[600px] left-[102px] top-[60px] absolute"
         style={{
-          borderRadius: "10px",
+          borderRadius: '10px',
           boxShadow:
-            "5px 4px 14px 0px rgba(0, 0, 0, 0.04),20px 16px 26px 0px rgba(0, 0, 0, 0.03),45px 36px 34px 0px rgba(0, 0, 0, 0.02),80px 64px 41px 0px rgba(0, 0, 0, 0.01),124px 100px 45px 0px rgba(0, 0, 0, 0);",
+            '5px 4px 14px 0px rgba(0, 0, 0, 0.04),20px 16px 26px 0px rgba(0, 0, 0, 0.03),45px 36px 34px 0px rgba(0, 0, 0, 0.02),80px 64px 41px 0px rgba(0, 0, 0, 0.01),124px 100px 45px 0px rgba(0, 0, 0, 0);',
         }}
       >
         <div className="mt-[140px] ml-[50px]">
@@ -36,7 +36,7 @@ const Login = () => {
             Don't have an account?
             <p
               className="text-[#4096ff] pl-[5px]"
-              style={{ cursor: "pointer" }}
+              style={{ cursor: 'pointer' }}
               onClick={handleRegister}
             >
               Create One
@@ -48,7 +48,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
