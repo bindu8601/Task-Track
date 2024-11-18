@@ -1,0 +1,16 @@
+{
+  "name": "tasktrack",
+  "version": "1.0.0",
+  "description": "backend code for tasktrack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app.js"
+  },
+  "author": "Bindu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "nodeman": "^1.1.2"
+  }
+}
