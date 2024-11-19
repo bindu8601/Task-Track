@@ -5,6 +5,7 @@ import CustomCalender from './components/CustomCalender'
 import SideBar from './components/SideBar'
 import Message from './components/Message'
 import ToDo from './components/ToDo'
+import TaskStatusCard from './components/TaskStatusCard'
 
 const DashBoard = () => {
   return (
@@ -24,7 +25,11 @@ const DashBoard = () => {
         <SideBar />
         <div className="flex flex-col flex-grow">
           <Message />
+          <div className='flex'>
           <ToDo />
+          <TaskStatusCard/>
+          </div>
+         
         </div>
       </div>
     </div>
