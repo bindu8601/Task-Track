@@ -6,7 +6,7 @@ const CustomCalender = () => {
   const formattedDate = currentDate.toLocaleDateString('en-GB') // Format: DD/MM/YYYY
   const dayName = currentDate.toLocaleDateString('en-US', { weekday: 'long' })
   return (
-    <div className="flex pt-[37px] items-center">
+    <div className="flex pt-[10px] items-center">
       <div className="flex gap-[9px]">
         <button
           className="w-[36px] h-[36px]"

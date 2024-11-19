@@ -1,11 +1,18 @@
-import React from 'react';
-import Bindu from '../../../assets/images/Bindu.png';
-import { DashBoardIcon, HelpIcon, SettingsIcon, TaskCategoriesIcon, TaskIcon, VitalIcon } from '../../../assets/icons/icons';
+import React from 'react'
+import Bindu from '../../../assets/images/Bindu.png'
+import {
+  DashBoardIcon,
+  HelpIcon,
+  SettingsIcon,
+  TaskCategoriesIcon,
+  TaskIcon,
+  VitalIcon,
+} from '../../../assets/icons/icons'
 
 const SideBar = () => {
   return (
     <div
-      className="w-[365px] relative bg-[#FF6767] min-h-screen mt-[44px] left-[-35px]"
+      className="w-[365px] relative bg-[#FF6767] mt-[44px] h-[868px] left-[-35px]"
       style={{ borderRadius: '0px 8px 8px 0px' }}
     >
       <div className="flex flex-col items-center">
@@ -22,7 +29,9 @@ const SideBar = () => {
           src={Bindu}
           alt="Bindu"
         />
-        <p className="mt-4 text-white text-[16px] font-[600]">Bindu Eppalapalle</p>
+        <p className="mt-4 text-white text-[16px] font-[600]">
+          Bindu Eppalapalle
+        </p>
         <p className="text-white text-[12px]">bindusai888@gmail.com</p>
       </div>
 
@@ -54,7 +63,7 @@ const SideBar = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SideBar;
+export default SideBar

@@ -4,7 +4,7 @@ import React from 'react'
 
 const SearchBar = () => {
   return (
-    <div className="flex pt-[37px] items-center relative">
+    <div className="flex pt-[10px] items-center relative">
       <Input
         className="w-[695px] h-[36px] pr-[50px]"
         style={{
