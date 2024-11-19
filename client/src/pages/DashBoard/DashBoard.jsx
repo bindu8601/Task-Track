@@ -2,6 +2,7 @@ import React from 'react'
 import Title from './components/Title'
 import SearchBar from './components/SearchBar'
 import CustomCalender from './components/CustomCalender'
+import SideBar from './components/SideBar'
 
 const DashBoard = () => {
   return (
@@ -13,6 +14,9 @@ const DashBoard = () => {
         <Title />
         <SearchBar />
         <CustomCalender />
+      </div>
+      <div>
+        <SideBar />
       </div>
     </div>
   )
