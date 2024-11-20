@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const TaskCard = () => {
   return (
@@ -13,24 +13,28 @@ const TaskCard = () => {
     >
       {/* Left Section */}
       <div className="flex flex-col space-y-2">
-        <h2 className="text-lg font-bold text-black">
+        <p className="text-[16px] font-[600] text-black">
           Attend Nischal’s Birthday Party
-        </h2>
-        <p className="text-gray-600 text-sm">
+        </p>
+        <p className="text-[14px] font-[400] text-[#747474]">
           Buy gifts on the way and pick up cake from the bakery. (6 PM | Fresh
           Elements)
         </p>
         <div className="flex space-x-4 text-sm">
           <p>
-            <span className="font-bold">Priority:</span>{' '}
-            <span className="text-blue-500">Moderate</span>
+            <span className="text-[10px] font-[400]">Priority:</span>{' '}
+            <span className="text-[#42ADE2] text-[10px] font-[400]">
+              Moderate
+            </span>
           </p>
           <p>
-            <span className="font-bold">Status:</span>{' '}
-            <span className="text-red-500">Not Started</span>
+            <span className="text-[10px] font-[400]">Status:</span>{' '}
+            <span className="text-[#F21E1E] text-[10px] font-[400]">
+              Not Started
+            </span>
           </p>
         </div>
-        <p className="text-gray-500 text-sm">
+        <p className="text-[#A1A3AB] text-[10px] font-[400]">
           Created on: <span>20/06/2023</span>
         </p>
       </div>
@@ -44,7 +48,7 @@ const TaskCard = () => {
         />
       </div> */}
     </div>
-  );
-};
+  )
+}
 
-export default TaskCard;
+export default TaskCard

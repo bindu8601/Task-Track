@@ -1,14 +1,14 @@
-import React from 'react';
-import { ToDoIcon } from '../../../assets/icons/icons';
-import TaskCard from './TaskCard';
+import React from 'react'
+import { ToDoIcon } from '../../../assets/icons/icons'
+import TaskCard from './TaskCard'
 
 const ToDo = () => {
   // Get today's date
-  const today = new Date();
+  const today = new Date()
   const formattedDate = today.toLocaleDateString('en-US', {
     month: 'short', // Short month format (e.g., "Nov")
     day: 'numeric', // Numeric day format (e.g., "20")
-  });
+  })
 
   return (
     <div
@@ -23,24 +23,26 @@ const ToDo = () => {
       <div className="flex justify-between p-4">
         <div className="flex items-center space-x-2">
           <ToDoIcon />
-          <p className="text-[#FF6767] font-semibold">To-Do</p>
+          <p className="text-[#FF6767] text-[15px] font-[500]">To-Do</p>
         </div>
         <div className="flex items-center space-x-1 text-[#FF6767]">
-          <p className="text-xl font-bold">+</p>
-          <p className="font-medium text-black">Add Task</p>
+          <p className="text-[#FF6767] text-[12px] cursor-pointer">+</p>
+          <p className="font-medium text-[#A1A3AB] text-[12px] cursor-pointer">
+            Add Task
+          </p>
         </div>
       </div>
 
       {/* Date Section */}
       <div className="p-4 flex">
-        <p className="text-gray-900">{formattedDate}</p>
-        <p className='pl-[8px]'>.Today</p>
+        <p className="text-[12px] font-[400]">{formattedDate}</p>
+        <p className="pl-[6px] text-[#A1A3AB] text-[12px]">.Today</p>
       </div>
-      <div className='px-[30px]'>
-      <TaskCard/>
+      <div className="px-[30px]">
+        <TaskCard />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ToDo;
+export default ToDo

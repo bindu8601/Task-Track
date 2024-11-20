@@ -1,8 +1,8 @@
 import React from 'react'
-import { TaskStatus } from '../../../assets/icons/icons'
-import RadialBar from './RadialBar'
+import { CompletedTaskIcon } from '../../../assets/icons/icons'
+import TaskCard from './TaskCard'
 
-const TaskStatusCard = () => {
+const CompletedTasks = () => {
   return (
     <div
       className="w-[426px] h-[263px] mt-[30px] ml-[20px]"
@@ -13,18 +13,16 @@ const TaskStatusCard = () => {
       }}
     >
       <div className="flex items-center p-4">
-        <TaskStatus />
-        <p className="text-[#FF6767] pl-[8px] text-[15px] font-[500]">
-          Task Status
+        <CompletedTaskIcon />
+        <p className="text-[#F24E1E] pl-[8px] text-[15px] font-[500]">
+          Completed Tasks
         </p>
       </div>
-      <div className="flex">
-        <RadialBar />
-        <RadialBar />
-        <RadialBar />
+      <div className="p-[13px]">
+        <TaskCard />
       </div>
     </div>
   )
 }
 
-export default TaskStatusCard
+export default CompletedTasks
