@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ToDoIcon } from '../../../assets/icons/icons'
 import TaskCard from './TaskCard'
+import CustomModal from '../../../common/components/CustomModal'
+import AddTask from '../misc/AddTask'
 
 const ToDo = () => {
+  const [addTaskOpen, setAddTaskOpen] = useState(false)
   // Get today's date
   const today = new Date()
   const formattedDate = today.toLocaleDateString('en-US', {
@@ -25,11 +28,25 @@ const ToDo = () => {
           <ToDoIcon />
           <p className="text-[#FF6767] text-[15px] font-[500]">To-Do</p>
         </div>
-        <div className="flex items-center space-x-1 text-[#FF6767]">
+        <div
+          className="flex items-center space-x-1 text-[#FF6767]"
+          onClick={() => setAddTaskOpen(true)}
+        >
           <p className="text-[#FF6767] text-[12px] cursor-pointer">+</p>
           <p className="font-medium text-[#A1A3AB] text-[12px] cursor-pointer">
             Add Task
           </p>
+          {addTaskOpen && (
+            <CustomModal
+              isModalOpen={addTaskOpen}
+              handleOk={() => setAddTaskOpen(false)}
+              handleCancel={() => setAddTaskOpen(false)}
+              width={918}
+              footer={false}
+            >
+              <AddTask/>
+            </CustomModal>
+          )}
         </div>
       </div>
 
