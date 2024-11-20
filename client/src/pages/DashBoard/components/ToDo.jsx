@@ -44,7 +44,7 @@ const ToDo = () => {
               width={918}
               footer={false}
             >
-              <AddTask/>
+              <AddTask />
             </CustomModal>
           )}
         </div>
