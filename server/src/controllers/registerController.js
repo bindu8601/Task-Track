@@ -8,6 +8,8 @@ const registerController = (req, res) => {
   registerModel.registerUser(
     { firstName, lastName, userEmail, password, userName },
     (err, result) => {
+      console.log(result?.insertId, 'bindu')
+
       if (err) {
         if (err.code === 'ER_DUP_ENTRY') {
           return res.status(400).json({ message: 'Email already exists!' })
@@ -18,7 +20,13 @@ const registerController = (req, res) => {
       }
       res
         .status(200)
-        .json({ success: true, message: 'User Registered Successfully!' })
+        .json({
+          success: true,
+          data: {
+            id: result?.insertId,
+            message: 'User Registered Successfully!',
+          },
+        })
     }
   )
 }

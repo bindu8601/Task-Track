@@ -4,7 +4,7 @@ const bodyPraser = require('body-parser')
 const db = require('./src/config/db')
 const cors = require('cors')
 const registerRoute = require('./src/routes/registerRoute')
-const addTaskRoute=require('./src/routes/addTask')
+const addTaskRoute = require('./src/routes/addTask')
 const app = express()
 app.use(cors())
 dotenv.config()
@@ -19,6 +19,6 @@ db.connect((err) => {
 
 app.use(bodyPraser.json())
 app.use('/tasktrack', registerRoute)
-app.use('/tasktrack',addTaskRoute)
+app.use('/tasktrack', addTaskRoute)
 
 app.listen(3001)
