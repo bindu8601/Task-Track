@@ -1,7 +1,8 @@
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons'
-import { Checkbox, Input, Upload } from 'antd'
+import { Checkbox, DatePicker, Input, Upload } from 'antd'
 import TextArea from 'antd/es/input/TextArea'
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 const getBase64 = (img, callback) => {
   const reader = new FileReader()
   reader.addEventListener('load', () => callback(reader.result))
@@ -20,8 +21,17 @@ const beforeUpload = (file) => {
   return isJpgOrPng && isLt2M
 }
 const AddTask = () => {
+  const { id } =
+  useSelector(({ userDetails }) => userDetails)
   const [loading, setLoading] = useState(false)
   const [imageUrl, setImageUrl] = useState()
+  const [taskTitle,setTaskTitle]=useState('')
+  const [taskDescription,setTaskDescription]=useState('')
+  const [priority,setPriority]=useState('')
+  const [taskDate,setTaskDate]=useState('')
+  const currentDate = new Date().toLocaleDateString('en-GB')
+console.log({currentDate});
+  
 
   const handleChange = (info) => {
     if (info.file.status === 'uploading') {
@@ -42,6 +52,29 @@ const AddTask = () => {
       <div style={{ marginTop: 8 }}>Browse</div>
     </button>
   )
+
+  const dateChange=(date)=>{
+    setTaskDate(date?.$d?.toLocaleDateString('en-GB'));
+  }
+
+  const handleAddTask=async()=>{
+    let obj={
+      id,taskTitle,taskDescription,priority,createdOn:currentDate,taskDate
+    }
+    console.log({obj});
+    try{
+      
+    }
+    catch(err){
+      console.log([err]);
+    }
+  }
+  const handleCheckBox=(value,name)=>{
+console.log({value,name});
+if(value?.target?.checked){
+  setPriority(name)
+}
+  }
   return (
     <div className="px-[35px] py-[25px]">
       <div className="flex justify-between">
@@ -50,9 +83,9 @@ const AddTask = () => {
       </div>
       <div className="border p-3 mt-5">
         <p className="text-[14px] font-[600] mb-[6px]">Title</p>
-        <Input />
+        <Input onChange={(e)=>setTaskTitle(e.target.value)} />
         <p className="text-[14px] font-[600] mt-[15px] mb-[6px]">Date</p>
-        <Input />
+         <DatePicker onChange={dateChange} className='w-full' /> 
         <p className="text-[14px] font-[600] mt-[15px] mb-[6px]">Priority</p>
         <div className="flex items-center">
           <span
@@ -78,7 +111,7 @@ const AddTask = () => {
             className="ml-[15px]"
           ></span>
           <p className="pl-[7px]">
-            Moderate <Checkbox />
+            Moderate <Checkbox onChange={(e)=>handleCheckBox(e,'moderate')} />
           </p>
           <span
             style={{
@@ -97,9 +130,9 @@ const AddTask = () => {
         <div className="text-[14px] font-[600] mt-[15px] flex">
           <div className="w-[600px]">
             <p className="mb-[10px]">Task Description</p>
-            <TextArea rows={5} placeholder="Start Writing here..." />
+            <TextArea onChange={(e)=>setTaskDescription(e.target.value)} rows={5} placeholder="Start Writing here..." />
           </div>
-          <div className='ml-[20px]'>
+          {/* <div className='ml-[20px]'>
             <p>Upload Image</p>
             <div className='mt-[10px]'>
             <Upload
@@ -119,13 +152,14 @@ const AddTask = () => {
           </Upload>
             </div>
          
-          </div>
+          </div> */}
          
         </div>
       </div>
       <button
         className="bg-[#F24E1E] text-[white] w-[90px] h-[34px] mt-4"
         style={{ borderRadius: '6px' }}
+        onClick={handleAddTask}
       >
         Done
       </button>

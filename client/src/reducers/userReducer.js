@@ -6,6 +6,7 @@ const initialState = {
   userEmail: '',
   userPassword: '',
   userName: '',
+  id:0
 }
 
 export const userDetailsSlice = createSlice({
@@ -27,6 +28,9 @@ export const userDetailsSlice = createSlice({
     setUserPassword: (state, { payload }) => {
       state.userPassword = payload
     },
+    setId:(state, { payload }) => {
+      state.id = payload
+    },
   },
 })
 
@@ -36,6 +40,7 @@ export const {
   setUserEmail,
   setUserName,
   setUserPassword,
+  setId
 } = userDetailsSlice.actions
 
 export default userDetailsSlice.reducer

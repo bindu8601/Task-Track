@@ -41,7 +41,7 @@ const ToDo = () => {
               isModalOpen={addTaskOpen}
               handleOk={() => setAddTaskOpen(false)}
               handleCancel={() => setAddTaskOpen(false)}
-              width={918}
+              width={500}
               footer={false}
             >
               <AddTask />

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   setFirstName,
+  setId,
   setLastName,
   setUserEmail,
   setUserName,
@@ -34,6 +35,7 @@ const Register = () => {
       let result = await registerUser(payload)
       if (result?.success) {
         console.log(result?.message)
+        dispatch(setId(result?.data?.id))
       }
     } catch (err) {
       console.log(err)
